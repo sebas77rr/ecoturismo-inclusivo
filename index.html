@@ -1,1 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoTurismo Inclusivo</title>
+  <meta
+    name="description"
+    content="Turismo accesible y sostenible en Guatapé con transporte eléctrico adaptado."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">
+        <img src="assets/logo.png" alt="Logo EcoTurismo Inclusivo" class="brand__logo" />
+        <span class="brand__text">
+          <span class="brand__eco">EcoTurismo</span>
+          <span class="brand__inclu">Inclusivo</span>
+        </span>
+      </div>
 
+      <a href="#formulario" class="btn btn--small">Quiero información</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <span class="badge">Turismo accesible + sostenible</span>
+
+          <h1>Explora Guatapé sin barreras y con total confianza</h1>
+
+          <p class="hero__subtitle">
+            Vive experiencias turísticas accesibles con transporte eléctrico adaptado,
+            atención cercana y recorridos pensados para personas con movilidad reducida
+            y sus acompañantes.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#formulario" class="btn">Reserva tu experiencia</a>
+            <a href="#beneficios" class="btn btn--ghost">Ver beneficios</a>
+          </div>
+
+          <p class="hero__note">
+            Regístrate hoy y recibe <strong>10% de beneficio de lanzamiento</strong>
+            para las primeras reservas.
+          </p>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero-card">
+            <img src="assets/logo.png" alt="EcoTurismo Inclusivo" class="hero-card__logo" />
+            <h2>Turismo accesible y sostenible</h2>
+            <p>
+              Una experiencia pensada para disfrutar Guatapé con seguridad, comodidad
+              e inclusión real.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="beneficios">
+      <div class="container">
+        <div class="section__heading">
+          <span class="section__eyebrow">Beneficios</span>
+          <h2>Más que transporte: una experiencia diseñada para disfrutar</h2>
+          <p>
+            Estos beneficios están pensados en resultados reales para el cliente:
+            comodidad, seguridad y tranquilidad durante todo el recorrido.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card__icon">♿</div>
+            <h3>Disfruta sin barreras</h3>
+            <p>
+              Accede a planes turísticos adaptados a tus necesidades de movilidad y
+              disfruta el recorrido con mayor autonomía.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">⚡</div>
+            <h3>Muévete de forma cómoda y sostenible</h3>
+            <p>
+              Recorre Guatapé con transporte eléctrico adaptado, reduciendo el impacto
+              ambiental sin perder confort.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">🤝</div>
+            <h3>Reserva con confianza</h3>
+            <p>
+              Recibe atención cercana, información clara y un beneficio de lanzamiento
+              para tomar tu decisión con tranquilidad.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="container">
+        <div class="section__heading">
+          <span class="section__eyebrow">Cómo funciona</span>
+          <h2>Un proceso simple, rápido y pensado para ti</h2>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <span class="step__number">1</span>
+            <h3>Déjanos tus datos</h3>
+            <p>Completa el formulario con tu nombre, email e interés en el servicio.</p>
+          </article>
+
+          <article class="step">
+            <span class="step__number">2</span>
+            <h3>Confirmamos contigo</h3>
+            <p>Te contactamos para contarte disponibilidad, detalles del plan y resolver dudas.</p>
+          </article>
+
+          <article class="step">
+            <span class="step__number">3</span>
+            <h3>Disfruta la experiencia</h3>
+            <p>Vive un recorrido accesible, seguro y sostenible en Guatapé.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="formulario">
+      <div class="container form-section">
+        <div class="form-section__content">
+          <span class="section__eyebrow">Reserva / Validación</span>
+          <h2>Déjanos tu información y cuéntanos qué opinas</h2>
+          <p>
+            Estamos validando esta idea de negocio. Tu respuesta nos ayuda a medir
+            interés real, recopilar feedback y mejorar la experiencia.
+          </p>
+
+          <ul class="checklist">
+            <li>Registro simple y rápido</li>
+            <li>Beneficio de lanzamiento para primeros interesados</li>
+            <li>Experiencia inclusiva, segura y sostenible</li>
+          </ul>
+        </div>
+
+        <div class="form-box">
+          <form
+            id="eco-form"
+            action="https://formspree.io/f/TU_CODIGO_AQUI"
+            method="POST"
+          >
+            <label for="nombre">Nombre</label>
+            <input
+              id="nombre"
+              name="nombre"
+              type="text"
+              placeholder="Tu nombre"
+              required
+            />
+
+            <label for="email">Correo electrónico</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="tucorreo@email.com"
+              required
+            />
+
+            <label for="interes">¿Te interesaría usar este servicio?</label>
+            <select id="interes" name="interes" required>
+              <option value="">Selecciona una opción</option>
+              <option value="si">Sí</option>
+              <option value="tal_vez">Tal vez</option>
+              <option value="no">No</option>
+            </select>
+
+            <label for="feedback">Tu opinión o feedback</label>
+            <textarea
+              id="feedback"
+              name="feedback"
+              rows="5"
+              placeholder="¿Qué opinas de esta idea de turismo accesible?"
+            ></textarea>
+
+            <button type="submit" class="btn btn--full">Enviar información</button>
+
+            <p class="form-disclaimer">
+              Tus datos serán usados solo para validar esta propuesta académica.
+            </p>
+
+            <p id="form-message" class="form-message" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer">
+      <p>EcoTurismo Inclusivo — Turismo accesible y sostenible en Guatapé.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
