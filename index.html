@@ -27,7 +27,7 @@
         </span>
       </div>
 
-      <a href="#formulario" class="btn btn--small">Quiero información</a>
+      <a href="#formulario" class="btn btn--small btn--pulse">Quiero información</a>
     </div>
   </header>
 
@@ -46,7 +46,7 @@
           </p>
 
           <div class="hero__actions">
-            <a href="#formulario" class="btn">Reserva tu experiencia</a>
+            <a href="#formulario" class="btn btn--pulse">Reserva tu experiencia</a>
             <a href="#beneficios" class="btn btn--ghost">Ver beneficios</a>
           </div>
 
@@ -54,6 +54,11 @@
             Regístrate hoy y recibe <strong>10% de beneficio de lanzamiento</strong>
             para las primeras reservas.
           </p>
+
+          <div class="visit-counter">
+            <span class="visit-counter__label">Visitas en este navegador:</span>
+            <strong id="visit-count">0</strong>
+          </div>
         </div>
 
         <div class="hero__visual">
@@ -197,13 +202,15 @@
               placeholder="¿Qué opinas de esta idea de turismo accesible?"
             ></textarea>
 
-            <button type="submit" class="btn btn--full">Enviar información</button>
+            <button type="submit" class="btn btn--full btn--pulse" id="submit-btn">
+              Enviar información
+            </button>
 
             <p class="form-disclaimer">
               Tus datos serán usados solo para validar esta propuesta académica.
             </p>
 
-            <p id="form-message" class="form-message" aria-live="polite"></p>
+            <div id="form-message" class="form-message" aria-live="polite"></div>
           </form>
         </div>
       </div>
