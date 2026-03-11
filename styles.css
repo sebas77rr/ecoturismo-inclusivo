@@ -529,3 +529,31 @@ textarea:focus {
     justify-content: center;
   }
 }
+
+.solar-section{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:2rem;
+align-items:center;
+}
+
+.solar-text p{
+color:var(--text-soft);
+margin-top:1rem;
+}
+
+.solar-list{
+margin-top:1rem;
+padding-left:0;
+list-style:none;
+color:var(--text-soft);
+}
+
+.solar-list li{
+margin-bottom:.5rem;
+}
+
+.solar-image img{
+border-radius:20px;
+box-shadow:var(--shadow);
+}
