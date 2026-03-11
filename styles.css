@@ -54,33 +54,33 @@ a {
 }
 
 .nav {
-  min-height: 86px;
+  min-height: 90px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.5rem 0;
+  padding: 0.55rem 0;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
+  gap: 1rem;
   min-width: 0;
 }
 
 .brand__logo {
-  width: 96px;
-  height: 96px;
+  width: 110px;
+  height: 110px;
   object-fit: contain;
   flex-shrink: 0;
-}  
+}
 
 .brand__text {
   display: flex;
   gap: 0.4rem;
   align-items: center;
-  font-size: 1.65rem;
+  font-size: 1.7rem;
   font-weight: 800;
   letter-spacing: 0.01em;
   line-height: 1;
@@ -95,12 +95,32 @@ a {
   color: var(--green);
 }
 
+/* =========================
+   HERO BASE + FONDO ÉPICO
+========================= */
+
 .hero {
+  position: relative;
+  overflow: hidden;
   padding: 5.5rem 0 4rem;
   background:
-    radial-gradient(circle at top right, rgba(79, 163, 217, 0.16), transparent 30%),
-    radial-gradient(circle at top left, rgba(123, 198, 164, 0.18), transparent 28%),
-    var(--bg);
+    linear-gradient(rgba(245, 249, 248, 0.82), rgba(245, 249, 248, 0.9)),
+    url("assets/guatape1.png") center/cover no-repeat;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right, rgba(79, 163, 217, 0.14), transparent 24%),
+    radial-gradient(circle at top left, rgba(123, 198, 164, 0.16), transparent 24%);
+  pointer-events: none;
+}
+
+.hero > .container {
+  position: relative;
+  z-index: 1;
 }
 
 .hero__grid {
@@ -166,8 +186,9 @@ a {
 }
 
 .hero-card {
-  background: linear-gradient(180deg, #ffffff 0%, #f7fbfa 100%);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(219, 231, 227, 0.9);
   border-radius: 28px;
   padding: 2rem;
   box-shadow: var(--shadow);
@@ -175,7 +196,7 @@ a {
 }
 
 .hero-card__logo {
-  width: 180px;
+  width: 190px;
   margin: 0 auto 1rem;
 }
 
@@ -188,6 +209,10 @@ a {
   margin: 0;
   color: var(--text-soft);
 }
+
+/* =========================
+   SECCIONES GENERALES
+========================= */
 
 .section {
   padding: 5rem 0;
@@ -213,6 +238,10 @@ a {
   margin: 0;
   color: var(--text-soft);
 }
+
+/* =========================
+   BENEFICIOS
+========================= */
 
 .cards {
   display: grid;
@@ -250,6 +279,10 @@ a {
   color: var(--text-soft);
 }
 
+/* =========================
+   CÓMO FUNCIONA
+========================= */
+
 .steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -283,6 +316,10 @@ a {
   margin: 0;
   color: var(--text-soft);
 }
+
+/* =========================
+   FORMULARIO
+========================= */
 
 .form-section {
   display: grid;
@@ -337,6 +374,10 @@ textarea:focus {
   border-color: var(--blue);
   box-shadow: 0 0 0 4px rgba(79, 163, 217, 0.14);
 }
+
+/* =========================
+   BOTONES
+========================= */
 
 .btn {
   display: inline-flex;
@@ -397,6 +438,10 @@ textarea:focus {
   }
 }
 
+/* =========================
+   MENSAJES
+========================= */
+
 .form-disclaimer,
 .site-footer p {
   color: var(--text-soft);
@@ -434,11 +479,163 @@ textarea:focus {
   text-align: center;
 }
 
+/* =========================
+   SECCIÓN SOLAR
+========================= */
+
+.solar-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.solar-text p {
+  color: var(--text-soft);
+  margin-top: 1rem;
+}
+
+.solar-list {
+  margin-top: 1rem;
+  padding-left: 0;
+  list-style: none;
+  color: var(--text-soft);
+}
+
+.solar-list li {
+  margin-bottom: 0.5rem;
+}
+
+.solar-image img {
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.solar-band {
+  background:
+    linear-gradient(180deg, rgba(238, 246, 243, 0.95), rgba(238, 246, 243, 0.95)),
+    url("assets/solar-car.png") center/cover no-repeat;
+}
+
+/* =========================
+   GALERÍA
+========================= */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.gallery img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    filter 0.35s ease;
+  filter: saturate(1.02);
+}
+
+.gallery img:hover {
+  transform: translateY(-6px) scale(1.025);
+  box-shadow: 0 20px 40px rgba(22, 58, 95, 0.16);
+  filter: saturate(1.08);
+}
+
+/* =========================
+   HOVER PRO TARJETAS
+========================= */
+
+.card--interactive,
+.card.card--interactive,
+.step.card--interactive {
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    background 0.28s ease;
+}
+
+.card--interactive:hover,
+.card.card--interactive:hover,
+.step.card--interactive:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 45px rgba(22, 58, 95, 0.14);
+  border-color: rgba(79, 163, 217, 0.35);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fcfb 100%);
+}
+
+.card--interactive:hover .card__icon,
+.step.card--interactive:hover .step__number {
+  transform: scale(1.06);
+}
+
+.card__icon,
+.step__number {
+  transition: transform 0.25s ease;
+}
+
+/* =========================
+   ANIMACIÓN HERO
+========================= */
+
+.hero__content,
+.hero__visual {
+  animation: heroFloatIn 0.9s ease both;
+}
+
+.hero__visual {
+  animation-delay: 0.12s;
+}
+
+@keyframes heroFloatIn {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media (max-width: 900px) {
   .hero__grid,
   .form-section,
   .cards,
-  .steps {
+  .steps,
+  .solar-section {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
     grid-template-columns: 1fr;
   }
 
@@ -472,16 +669,16 @@ textarea:focus {
     width: 100%;
     justify-content: center;
     text-align: center;
-    gap: 0.7rem;
+    gap: 0.75rem;
   }
 
   .brand__logo {
-    width: 54px;
-    height: 54px;
+    width: 74px;
+    height: 74px;
   }
 
   .brand__text {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     justify-content: center;
   }
 
@@ -491,6 +688,7 @@ textarea:focus {
 
   .hero {
     padding: 2.6rem 0 3rem;
+    background-position: center top;
   }
 
   .hero__content {
@@ -528,65 +726,11 @@ textarea:focus {
   .visit-counter {
     justify-content: center;
   }
+
+  .card--interactive:hover,
+  .card.card--interactive:hover,
+  .step.card--interactive:hover {
+    transform: translateY(-4px);
+  }
 }
-
-.solar-section{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:2rem;
-align-items:center;
-}
-
-.solar-text p{
-color:var(--text-soft);
-margin-top:1rem;
-}
-
-.solar-list{
-margin-top:1rem;
-padding-left:0;
-list-style:none;
-color:var(--text-soft);
-}
-
-.solar-list li{
-margin-bottom:.5rem;
-}
-
-.solar-image img{
-border-radius:20px;
-box-shadow:var(--shadow);
-}
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:1rem;
-margin-top:2rem;
-}
-
-.gallery img{
-width:100%;
-height:260px;
-object-fit:cover;
-border-radius:20px;
-box-shadow:var(--shadow);
-transition:transform .3s;
-}
-
-.gallery img:hover{
-transform:scale(1.03);
-}
-
-
-@media(max-width:900px){
-
-.solar-section{
-grid-template-columns:1fr;
-}
-
-.gallery{
-grid-template-columns:1fr;
-}
-
-}
+Si quieres, cerramos con el script.js final completo para que ya quede todo el proyecto amarrado.
