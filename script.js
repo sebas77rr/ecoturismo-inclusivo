@@ -4,51 +4,87 @@ document.addEventListener("DOMContentLoaded", () => {
   const submitBtn = document.getElementById("submit-btn");
   const visitCount = document.getElementById("visit-count");
 
+  // =========================
   // Contador simple local por navegador
+  // =========================
   if (visitCount) {
     const currentCount = Number(localStorage.getItem("eco_visits") || "0") + 1;
     localStorage.setItem("eco_visits", String(currentCount));
     visitCount.textContent = currentCount;
   }
 
-  if (!form || !message || !submitBtn) return;
+  // =========================
+  // Formulario con mensaje bonito
+  // =========================
+  if (form && message && submitBtn) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+      message.className = "form-message";
+      message.textContent = "";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Enviando...";
 
-    message.className = "form-message";
-    message.textContent = "";
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Enviando...";
+      try {
+        const formData = new FormData(form);
 
-    try {
-      const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        });
 
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
-      });
+        if (response.ok) {
+          message.classList.add("is-success");
+          message.innerHTML =
+            "✅ ¡Gracias! Tu información fue enviada correctamente. Nos ayudas mucho a validar esta idea.";
+          form.reset();
 
-      if (response.ok) {
-        message.classList.add("is-success");
-        message.innerHTML =
-          "✅ ¡Gracias! Tu información fue enviada correctamente. Nos ayudas mucho a validar esta idea.";
-        form.reset();
-      } else {
+          // Lleva suavemente al usuario al mensaje
+          message.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+          });
+        } else {
+          message.classList.add("is-error");
+          message.innerHTML =
+            "❌ No se pudo enviar el formulario en este momento. Intenta nuevamente.";
+        }
+      } catch (error) {
         message.classList.add("is-error");
         message.innerHTML =
-          "❌ No se pudo enviar el formulario en este momento. Intenta nuevamente.";
+          "❌ Ocurrió un error de conexión. Revisa internet e inténtalo de nuevo.";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Enviar información";
       }
-    } catch (error) {
-      message.classList.add("is-error");
-      message.innerHTML =
-        "❌ Ocurrió un error de conexión. Revisa internet e inténtalo de nuevo.";
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Enviar información";
-    }
-  });
+    });
+  }
+
+  // =========================
+  // Scroll reveal suave
+  // =========================
+  const revealElements = document.querySelectorAll(".reveal");
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+      }
+    );
+
+    revealElements.forEach((el) => observer.observe(el));
+  } else {
+    revealElements.forEach((el) => el.classList.add("is-visible"));
+  }
 });
